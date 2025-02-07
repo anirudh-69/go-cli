@@ -18,7 +18,7 @@ func TestCountLines(t *testing.T) {
 		{"Empty input", bytes.NewBufferString(""), 0},
 		{"Nil Input", nil, 0},
 		{"Trailing newline", bytes.NewBufferString("word1 word2 word3\n"), 1},
-		{"Multiple newlines", bytes.NewBufferString("word1 word2 word3\n\n\n"), 3},
+		{"Multiple trailing newlines", bytes.NewBufferString("word1 word2 word3\n\n\n"), 3},
 	}
 
 	for _, tt := range tests {
@@ -42,6 +42,7 @@ func TestCountWords(t *testing.T) {
 		{"Multiple words", bytes.NewBufferString("word1 word2 word3 word4\n"), 4},
 		{"Single word", bytes.NewBufferString("word1"), 1},
 		{"Empty input", bytes.NewBufferString(""), 0},
+		{"Nil Input", nil, 0},
 		{"Multiple spaces", bytes.NewBufferString("word1   word2  word3"), 3},
 		{"Mixed spaces and newlines", bytes.NewBufferString("word1 word2\nword3 word4"), 4},
 	}
